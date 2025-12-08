@@ -1,0 +1,32 @@
+[package]
+name = "focus"
+version = "0.15.0"
+edition = "2024"
+
+[dependencies]
+actix-files = "0.6.6"
+actix-web = { version = "4.11.0", default-features = false, features = [
+    "rustls",
+    "compress-brotli",
+    "http2",
+    "macros",
+] }
+chrono = { version = "0.4", features = ["serde"] }
+env_logger = "0.11.8"
+jsonwebtoken = "9.3.0"
+lazy_static = "1.4.0"
+
+log = "0.4.27"
+maud = { version = "0.27.0", features = ["actix-web"] }
+rand = "0.9.1"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+base64 = "0.22"
+actix-session = { version = "0.10", features = ["cookie-session"] }
+urlencoding = "2.1"
+
+tokio = { version = "1.0", features = ["full"] }
+url = "2.5.4"
+regex = "1.0"
+markdown = "1.0.0"
+printpdf = "0.7.0"
+include_dir = "0.7"
