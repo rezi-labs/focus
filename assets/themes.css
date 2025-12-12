@@ -1,37 +1,37 @@
-/*! 🌼 daisyUI 5.0.42 - MIT License - Swiss Design Themes */
+/*! 🌼 daisyUI 5.0.42 - MIT License - Catppuccin Themes */
 :root,
 :root:has(input.theme-controller[value="swiss"]:checked),
 [data-theme="swiss"] {
     color-scheme: light;
-    /* Valentine colors for Swiss light theme */
-    --color-base-100: oklch(97% 0.014 343.198);
-    --color-base-200: oklch(94% 0.028 342.258);
-    --color-base-300: oklch(89% 0.061 343.231);
-    --color-base-content: oklch(52% 0.223 3.958);
-    --color-primary: oklch(65% 0.241 354.308);
-    --color-primary-content: oklch(100% 0 0);
-    --color-secondary: oklch(62% 0.265 303.9);
-    --color-secondary-content: oklch(97% 0.014 308.299);
-    --color-accent: oklch(82% 0.111 230.318);
-    --color-accent-content: oklch(39% 0.09 240.876);
-    --color-neutral: oklch(40% 0.153 2.432);
-    --color-neutral-content: oklch(89% 0.061 343.231);
-    --color-info: oklch(86% 0.127 207.078);
-    --color-info-content: oklch(44% 0.11 240.79);
-    --color-success: oklch(84% 0.143 164.978);
-    --color-success-content: oklch(43% 0.095 166.913);
-    --color-warning: oklch(75% 0.183 55.934);
-    --color-warning-content: oklch(26% 0.079 36.259);
-    --color-error: oklch(63% 0.237 25.331);
-    --color-error-content: oklch(97% 0.013 17.38);
-    /* Swiss design: no rounded corners - clean rectangles */
-    --radius-selector: 0.25rem;
-    --radius-field: 0.25rem;
-    --radius-box: 0.25rem;
+    /* Catppuccin Latte - Light theme */
+    --color-base-100: #eff1f5; /* Base */
+    --color-base-200: #e6e9ef; /* Mantle */
+    --color-base-300: #dce0e8; /* Crust */
+    --color-base-content: #4c4f69; /* Text */
+    --color-primary: #8839ef; /* Mauve */
+    --color-primary-content: #eff1f5;
+    --color-secondary: #ea76cb; /* Pink */
+    --color-secondary-content: #eff1f5;
+    --color-accent: #04a5e5; /* Sky */
+    --color-accent-content: #eff1f5;
+    --color-neutral: #5c5f77; /* Subtext1 */
+    --color-neutral-content: #eff1f5;
+    --color-info: #209fb5; /* Sapphire */
+    --color-info-content: #eff1f5;
+    --color-success: #40a02b; /* Green */
+    --color-success-content: #eff1f5;
+    --color-warning: #df8e1d; /* Yellow */
+    --color-warning-content: #eff1f5;
+    --color-error: #d20f39; /* Red */
+    --color-error-content: #eff1f5;
+    /* Soft rounded corners for Catppuccin style */
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.75rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    /* Strong borders for definition */
-    --border: 2px;
+    /* Subtle borders */
+    --border: 1px;
     --depth: 0;
     --noise: 0;
 }
@@ -39,35 +39,35 @@
 :root:has(input.theme-controller[value="swiss-dark"]:checked),
 [data-theme="swiss-dark"] {
     color-scheme: dark;
-    /* Valentine colors inverted for Swiss dark theme */
-    --color-base-100: oklch(8% 0.061 343.231);
-    --color-base-200: oklch(11% 0.028 342.258);
-    --color-base-300: oklch(16% 0.014 343.198);
-    --color-base-content: oklch(89% 0.061 343.231);
-    --color-primary: oklch(65% 0.241 354.308);
-    --color-primary-content: oklch(8% 0.061 343.231);
-    --color-secondary: oklch(62% 0.265 303.9);
-    --color-secondary-content: oklch(8% 0.014 308.299);
-    --color-accent: oklch(82% 0.111 230.318);
-    --color-accent-content: oklch(16% 0.09 240.876);
-    --color-neutral: oklch(89% 0.061 343.231);
-    --color-neutral-content: oklch(40% 0.153 2.432);
-    --color-info: oklch(86% 0.127 207.078);
-    --color-info-content: oklch(16% 0.11 240.79);
-    --color-success: oklch(84% 0.143 164.978);
-    --color-success-content: oklch(16% 0.095 166.913);
-    --color-warning: oklch(75% 0.183 55.934);
-    --color-warning-content: oklch(8% 0.079 36.259);
-    --color-error: oklch(63% 0.237 25.331);
-    --color-error-content: oklch(8% 0.013 17.38);
-    /* Swiss design: no rounded corners - clean rectangles */
-    --radius-selector: 0.25rem;
-    --radius-field: 0.25rem;
-    --radius-box: 0.25rem;
+    /* Catppuccin Mocha - Dark theme */
+    --color-base-100: #1e1e2e; /* Base */
+    --color-base-200: #181825; /* Mantle */
+    --color-base-300: #11111b; /* Crust */
+    --color-base-content: #cdd6f4; /* Text */
+    --color-primary: #cba6f7; /* Mauve */
+    --color-primary-content: #1e1e2e;
+    --color-secondary: #f5c2e7; /* Pink */
+    --color-secondary-content: #1e1e2e;
+    --color-accent: #89dceb; /* Sky */
+    --color-accent-content: #1e1e2e;
+    --color-neutral: #a6adc8; /* Subtext1 */
+    --color-neutral-content: #1e1e2e;
+    --color-info: #74c7ec; /* Sapphire */
+    --color-info-content: #1e1e2e;
+    --color-success: #a6e3a1; /* Green */
+    --color-success-content: #1e1e2e;
+    --color-warning: #f9e2af; /* Yellow */
+    --color-warning-content: #1e1e2e;
+    --color-error: #f38ba8; /* Red */
+    --color-error-content: #1e1e2e;
+    /* Soft rounded corners for Catppuccin style */
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.75rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    /* Strong borders for definition */
-    --border: 2px;
+    /* Subtle borders */
+    --border: 1px;
     --depth: 0;
     --noise: 0;
 }
