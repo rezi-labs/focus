@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/rezi-labs/focus/compare/v0.3.0...v0.4.0) (2025-12-12)
+
+
+### Features
+
+* scroll ([bedfab4](https://github.com/rezi-labs/focus/commit/bedfab44bb97ab64cdf7fb3e641e854347e234a6))
+
 ## [0.3.0](https://github.com/rezi-labs/focus/compare/v0.2.3...v0.3.0) (2025-12-12)
 
 
