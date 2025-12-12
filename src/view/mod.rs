@@ -47,14 +47,14 @@ pub fn index(content: Option<Markup>) -> Markup {
             link rel="icon" href="/assets/grocy.svg" sizes="any" type="image/svg+xml" {}
 
         }
-        body hx-boost="true" {
+        body hx-boost="true" class="overflow-hidden" {
             (js("/assets/htmxListener.js"))
             (js("/assets/htmx-reload.js"))
 
 
-            div class="min-h-screen bg-base-100" {
+            div class="h-screen bg-base-100 flex flex-col" {
                 (navbar::render())
-                main class="container mx-auto px-4 py-6" {
+                main class="container mx-auto px-4 py-6 flex-1 overflow-y-auto" {
                     (content)
                 }
             }

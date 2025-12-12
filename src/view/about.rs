@@ -35,12 +35,14 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     let has_prev = current_index > 0;
 
     maud::html! {
-        div id="post" class="space-y-6" {
-            h1 {(post.title)}
-            h4 {(post.subtitle)}
-            (PreEscaped(as_html))
+        div id="post" class="flex flex-col h-full" {
+            div class="flex-1 overflow-y-auto space-y-6 pb-6" {
+                h1 {(post.title)}
+                h4 {(post.subtitle)}
+                (PreEscaped(as_html))
+            }
 
-            div class="mt-6 flex justify-between" {
+            div class="mt-6 flex justify-between sticky bottom-0 bg-base-100 py-4 border-t border-base-200" {
                 @if has_prev {
                     button
                         class="btn btn-primary"
