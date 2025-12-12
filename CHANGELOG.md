@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://github.com/rezi-labs/focus/compare/v0.4.0...v0.5.0) (2025-12-12)
+
+
+### Features
+
+* new theme ([10e2aad](https://github.com/rezi-labs/focus/commit/10e2aad04a05b9951beb8719f19438bef7395caf))
+
+
+### Bug Fixes
+
+* all ([65e3a8f](https://github.com/rezi-labs/focus/commit/65e3a8f9a2f638be9cecc03cb6fa1820081316da))
+
 ## [0.4.0](https://github.com/rezi-labs/focus/compare/v0.3.0...v0.4.0) (2025-12-12)
 
 
