@@ -15,7 +15,7 @@ struct Post {
     date: DateTime<Utc>,
 }
 
-fn post_to_html(post: Post, next: usize) -> maud::Markup {
+fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     let as_html = markdown::to_html_with_options(
         &post.md_content,
         &Options {
@@ -27,7 +27,10 @@ fn post_to_html(post: Post, next: usize) -> maud::Markup {
     )
     .unwrap();
 
-    let next_url = format!("/posts/{next}");
+    let next_index = current_index + 1;
+    let next_url = format!("/posts/{next_index}");
+    let has_next = next_index < POSTS.len();
+    let has_prev = current_index > 0;
 
     maud::html! {
         div id="post" class="space-y-6" {
@@ -35,13 +38,26 @@ fn post_to_html(post: Post, next: usize) -> maud::Markup {
             h4 {(post.subtitle)}
             (PreEscaped(as_html))
 
-            div class="mt-6 flex justify-center" {
-                button
-                    class="btn btn-primary"
-                    hx-get=(next_url)
-                    hx-target="#post"
-                    hx-swap="outerHTML" {
-                    "Next Post"
+            div class="mt-6 flex justify-between" {
+                @if has_prev {
+                    button
+                        class="btn btn-primary"
+                        hx-get={"/posts/" (current_index - 1)}
+                        hx-target="#post"
+                        hx-swap="outerHTML" {
+                        "Previous Post"
+                    }
+                } @else {
+                    div {}
+                }
+                @if has_next {
+                    button
+                        class="btn btn-primary"
+                        hx-get=(next_url)
+                        hx-target="#post"
+                        hx-swap="outerHTML" {
+                        "Next Post"
+                    }
                 }
             }
         }
@@ -176,8 +192,7 @@ pub async fn post_route(path: web::Path<usize>) -> AwResult<HttpResponse> {
 
     match get_post(index) {
         Some(post) => {
-            let next_index = index + 1;
-            let html = post_to_html(post, next_index);
+            let html = post_to_html(post, index);
             Ok(HttpResponse::Ok()
                 .content_type("text/html")
                 .body(html.into_string()))
@@ -188,7 +203,7 @@ pub async fn post_route(path: web::Path<usize>) -> AwResult<HttpResponse> {
 
 pub fn posts() -> Markup {
     match get_post(0) {
-        Some(post) => post_to_html(post, 1),
+        Some(post) => post_to_html(post, 0),
         None => html! {
             div class="space-y-6" {
                 p { "No posts available yet." }

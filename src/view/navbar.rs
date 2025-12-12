@@ -1,6 +1,6 @@
 use maud::{Markup, html};
 
-use crate::view::icons::{info_icon, spark_icon};
+use crate::view::icons::{info_icon, moon_icon, spark_icon, sun_icon};
 
 pub fn render() -> Markup {
     html! {
@@ -24,11 +24,15 @@ fn navbar() -> Markup {
                 }
 
                 div class="hidden lg:flex items-center gap-8" {
-                    a href="/" class="flex items-center gap-2 text-sm font-medium text-base-content/70 hover:text-base-content transition-colors py-2" {
-                        span class="w-4 h-4 flex items-center justify-center opacity-60" {
-                            (spark_icon())
+
+                    label class="swap swap-rotate flex items-center gap-2 text-sm font-medium text-base-content/70 hover:text-base-content transition-colors py-2 cursor-pointer" {
+                        input type="checkbox" class="theme-controller hidden" value="swiss" onclick="toggleTheme()" {}
+                        span class="swap-on w-8 h-8 flex items-center justify-center opacity-60" {
+                            (sun_icon())
                         }
-                        "Home"
+                        span class="swap-off w-8 h-8 flex items-center justify-center opacity-60" {
+                            (moon_icon())
+                        }
                     }
                 }
 
@@ -55,6 +59,17 @@ fn navbar() -> Markup {
                                             (info_icon())
                                         }
                                         "About"
+                                    }
+                                }
+                                li {
+                                    label class="swap swap-rotate flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-base-200 transition-colors w-full cursor-pointer" {
+                                        input type="checkbox" class="theme-controller hidden" value="swiss" onclick="toggleTheme()" {}
+                                        span class="swap-on w-4 h-4 flex items-center opacity-60" {
+                                            (sun_icon())
+                                        }
+                                        span class="swap-off w-4 h-4 flex items-center opacity-60" {
+                                            (moon_icon())
+                                        }
                                     }
                                 }
                             }

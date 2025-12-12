@@ -49,7 +49,7 @@ function changeTheme(theme, persist = true) {
         // Persist theme to localStorage if requested
         if (persist) {
             try {
-                localStorage.setItem('daisy-theme', normalizedTheme);
+                localStorage.setItem('focus-theme', normalizedTheme);
             } catch (storageError) {
                 console.warn('Theme switcher: Could not save theme to localStorage:', storageError);
             }
@@ -83,7 +83,7 @@ function getCurrentTheme() {
  */
 function getSavedTheme() {
     try {
-        return localStorage.getItem('daisy-theme');
+        return localStorage.getItem('focus-theme');
     } catch (error) {
         console.warn('Theme switcher: Could not access localStorage:', error);
         return null;
