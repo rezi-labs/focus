@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/rezi-labs/focus/compare/v0.2.3...v0.3.0) (2025-12-12)
+
+
+### Features
+
+* New post ([15b0b7d](https://github.com/rezi-labs/focus/commit/15b0b7deece4c73830916430176454386964e8ee))
+
 ## [0.2.3](https://github.com/rezi-labs/focus/compare/v0.2.2...v0.2.3) (2025-12-12)
 
 
