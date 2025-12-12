@@ -9,7 +9,7 @@ on:
 jobs:
   # Verifies all tests pass
   verify:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     timeout-minutes: 30
     permissions:
       contents: read
@@ -37,7 +37,7 @@ jobs:
   release:
     needs: verify
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions:
       contents: write
       pull-requests: write
@@ -55,7 +55,7 @@ jobs:
   publish:
     needs: [verify, release]
     if: needs.verify.result == 'success' && needs.release.outputs.released
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     timeout-minutes: 30
     permissions:
       contents: read
