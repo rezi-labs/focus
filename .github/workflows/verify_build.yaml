@@ -51,6 +51,30 @@ jobs:
           token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
           release-type: rust
 
+  # Auto-merge release PRs after verification passes
+  auto-merge-release:
+    needs: verify
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check and auto-merge if release PR
+        env:
+          GH_TOKEN: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          # Check if PR title matches the release pattern
+          if [[ "$PR_TITLE" =~ ^chore\(main\):\ release\ .+ ]]; then
+            echo "This is a release PR: $PR_TITLE"
+            echo "Enabling auto-merge for PR #$PR_NUMBER"
+            gh pr merge "$PR_NUMBER" --repo ${{ github.repository }} --auto --squash
+          else
+            echo "Not a release PR, skipping auto-merge"
+          fi
+
   # Publish the artifacts (only if `verify` passed, and `release` created release)
   publish:
     needs: [verify, release]
