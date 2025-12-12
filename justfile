@@ -9,6 +9,9 @@ docker:
 run:
     cargo run
 
+install:
+    cargo install --path .
+
 watch:
     cargo watch -x run
 
