@@ -31,7 +31,7 @@ async fn start_server() -> std::io::Result<()> {
     let host = c.host();
     let port = c.port();
 
-    let url = format!("http://{}:{}", host, port);
+    let url = format!("http://{host}:{port}");
 
     log::info!("Server started at {url}");
 
@@ -78,7 +78,7 @@ fn create_post(args: &[String]) -> std::io::Result<()> {
         .filter(|&c| c != '\0')
         .collect::<String>();
 
-    let filename = format!("{}-{}.md", date_str, slug);
+    let filename = format!("{date_str}-{slug}.md");
     let filepath = Path::new("posts").join(&filename);
 
     // Create posts directory if it doesn't exist
@@ -92,12 +92,11 @@ fn create_post(args: &[String]) -> std::io::Result<()> {
 
     // Create the markdown file with template
     let template = format!(
-        "# {}\n\
+        "# {title}\n\
          Write your subtitle here\n\
          ---\n\
          \n\
-         Write your post content here.\n",
-        title
+         Write your post content here.\n"
     );
 
     let mut file = fs::File::create(&filepath)?;

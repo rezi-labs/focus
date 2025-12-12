@@ -27,7 +27,7 @@ fn post_to_html(post: Post, next: usize) -> maud::Markup {
     )
     .unwrap();
 
-    let next_url = format!("/posts/{}", next);
+    let next_url = format!("/posts/{next}");
 
     maud::html! {
         div id="post" class="space-y-6" {
@@ -104,7 +104,7 @@ lazy_static! {
                 let path = file.path();
 
                 // Only process markdown files
-                if !path.extension().map_or(false, |ext| ext == "md") {
+                if path.extension().is_none_or(|ext| ext != "md") {
                     return None;
                 }
 
@@ -118,7 +118,7 @@ lazy_static! {
                             naive_date.and_hms_opt(0, 0, 0)
                                 .map(|dt| DateTime::<Utc>::from_naive_utc_and_offset(dt, Utc))
                         })
-                        .unwrap_or_else(|| Utc::now())
+                        .unwrap_or_else(Utc::now)
                 } else {
                     Utc::now()
                 };

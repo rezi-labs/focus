@@ -1,5 +1,6 @@
 use maud::{Markup, html};
 
+#[allow(unused)]
 pub fn list_icon() -> Markup {
     html! {
         svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" {
@@ -19,6 +20,7 @@ pub fn share_icon() -> Markup {
     }
 }
 
+#[allow(unused)]
 pub fn delete_icon() -> Markup {
     html! {
         svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" {
@@ -28,6 +30,7 @@ pub fn delete_icon() -> Markup {
     }
 }
 
+#[allow(unused)]
 pub fn add_icon() -> Markup {
     html! {
         svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" {
@@ -37,6 +40,7 @@ pub fn add_icon() -> Markup {
     }
 }
 
+#[allow(unused)]
 pub fn user_icon() -> Markup {
     html! {
         svg."size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke="currentColor" {
@@ -85,6 +89,7 @@ pub fn house_icon() -> Markup {
     }
 }
 
+#[allow(unused)]
 pub fn export_icon() -> Markup {
     html! {
         svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" {
@@ -121,6 +126,7 @@ pub fn spark_icon() -> Markup {
     }
 }
 
+#[allow(unused)]
 pub fn link_icon() -> Markup {
     html! {
         svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" {
