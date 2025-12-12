@@ -1,6 +1,6 @@
 use maud::{Markup, html};
 
-use crate::view::icons::{info_icon, moon_icon, spark_icon, sun_icon};
+use crate::view::icons::{info_icon, moon_icon, read_icon, sun_icon};
 
 pub fn render() -> Markup {
     html! {
@@ -15,7 +15,7 @@ fn navbar() -> Markup {
                 div class="flex items-center" {
                     a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity" {
                         span class="w-5 h-5 flex items-center justify-center opacity-70" {
-                            (spark_icon())
+                            (read_icon())
                         }
                         h1 class="text-lg font-light tracking-widest uppercase text-base-content" {
                             "Focus"
@@ -48,7 +48,7 @@ fn navbar() -> Markup {
                                 li {
                                     a href="/" class="flex items-center gap-3 text-sm text-base-content/70 hover:text-base-content hover:bg-base-200/50 px-3 py-2 rounded transition-colors" {
                                         span class="w-4 h-4 flex items-center justify-center opacity-60" {
-                                            (spark_icon())
+                                            (read_icon())
                                         }
                                         "Home"
                                     }
