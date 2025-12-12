@@ -20,9 +20,11 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
         &post.md_content,
         &Options {
             compile: CompileOptions {
+                allow_dangerous_html: true,
+                allow_dangerous_protocol: false,
                 ..CompileOptions::default()
             },
-            ..Options::default()
+            ..Options::gfm()
         },
     )
     .unwrap();
@@ -164,9 +166,11 @@ lazy_static! {
             markdown_content,
             &Options {
                 compile: CompileOptions {
+                    allow_dangerous_html: true,
+                    allow_dangerous_protocol: false,
                     ..CompileOptions::default()
                 },
-                ..Options::default()
+                ..Options::gfm()
             },
         )
         .unwrap();
