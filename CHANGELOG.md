@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/rezi-labs/focus/compare/v0.1.1...v0.1.2) (2025-12-12)
+
+
+### Bug Fixes
+
+* release ([d37ae3f](https://github.com/rezi-labs/focus/commit/d37ae3f15855371a9613397fd9cc49d22309398a))
+
 ## [0.1.1](https://github.com/rezi-labs/focus/compare/v0.1.0...v0.1.1) (2025-12-12)
 
 
