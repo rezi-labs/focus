@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=builder /usr/src/app/assets /
 # Copy the build artifact from the build stage
-COPY --from=builder /usr/src/app/target/release/taste /usr/local/bin/
+COPY --from=builder /usr/src/app/target/release/focus /usr/local/bin/
 
 LABEL org.opencontainers.image.source=https://github.com/LunchTimeCode/focus
 
