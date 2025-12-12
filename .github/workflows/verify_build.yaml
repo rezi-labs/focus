@@ -53,7 +53,7 @@ jobs:
 
   # Auto-merge release PRs after verification passes
   auto-merge-release:
-    needs: release
+    needs: verify
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
