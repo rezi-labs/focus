@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/rezi-labs/focus/compare/v0.1.2...v0.2.0) (2025-12-12)
+
+
+### Features
+
+* improved ui ([3533028](https://github.com/rezi-labs/focus/commit/3533028edbaee7909fbd7ed29eae6c91afbb417f))
+* post ([15322d1](https://github.com/rezi-labs/focus/commit/15322d190b6a21cbf6c89900832930b5cdfca06a))
+
+
+### Bug Fixes
+
+* auto merge ([8b7d006](https://github.com/rezi-labs/focus/commit/8b7d006f3b80677f49b0030584e292480ea9c197))
+
 ## [0.1.2](https://github.com/rezi-labs/focus/compare/v0.1.1...v0.1.2) (2025-12-12)
 
 
