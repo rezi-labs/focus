@@ -17,8 +17,8 @@ fn navbar() -> Markup {
                         span class="w-5 h-5 flex items-center justify-center opacity-70" {
                             (read_icon())
                         }
-                        h1 class="text-lg font-light tracking-widest uppercase text-base-content" {
-                            "Focus"
+                        h1 class="text-lg font-normal text-base-content" {
+                            "FOCUS"
                         }
                     }
                 }

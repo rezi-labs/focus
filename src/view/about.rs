@@ -15,6 +15,12 @@ struct Post {
     date: DateTime<Utc>,
 }
 
+impl Post {
+    pub fn human_date(&self) -> String {
+        self.date.format("%B %d, %Y").to_string()
+    }
+}
+
 fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     let as_html = markdown::to_html_with_options(
         &post.md_content,
@@ -37,8 +43,13 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     maud::html! {
         div id="post" class="flex flex-col h-full" {
             div class="flex-1 overflow-y-auto space-y-6 pb-6" {
-                h1 {(post.title)}
-                h4 {(post.subtitle)}
+                div class="prose" {
+                    h1 {(post.title)}
+                    p {(post.subtitle)}
+                    p {(post.human_date())}
+                }
+
+                div class="divider" {}
                 (PreEscaped(as_html))
             }
 
@@ -188,7 +199,6 @@ pub fn readme() -> Markup {
 }
 
 fn get_post(page: usize) -> Option<Post> {
-    println!("{:?}", POSTS.first().unwrap());
     POSTS.get(page).cloned()
 }
 
