@@ -18,17 +18,19 @@
     background-color: #000;
 }
 
-/* Enhanced contrast for cards and UI elements */
+/* Cozy cards that feel warm and inviting */
 [data-theme="light"] .card {
-    background-color: oklch(98% 0 0);
-    border: 1px solid oklch(85% 0.01 343.231);
-    box-shadow: 0 4px 6px -1px oklch(0% 0 0 / 0.1), 0 2px 4px -2px oklch(0% 0 0 / 0.1);
+    background-color: #faf8f4;
+    border: 2px solid #e5ddd0;
+    box-shadow: 0 8px 16px -4px rgba(61, 53, 41, 0.08), 0 4px 8px -2px rgba(61, 53, 41, 0.05);
+    border-radius: 1rem;
 }
 
 [data-theme="dark"] .card {
-    background-color: oklch(15% 0.005 17.911);
-    border: 1px solid oklch(25% 0.01 17.911);
-    box-shadow: 0 4px 6px -1px oklch(0% 0 0 / 0.3), 0 2px 4px -2px oklch(0% 0 0 / 0.2);
+    background-color: #342e28;
+    border: 2px solid #443d35;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.3), 0 4px 8px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
 }
 
 
@@ -451,62 +453,66 @@
 
 
 
-/* TASTE ASCII-inspired Angular Design Overrides */
-/* Make all UI elements more angular and blocky like the ASCII art */
+/* Cozy Coffee Table Design - Warm and inviting */
+/* Make all UI elements soft and comfortable like sitting at a coffee table */
 
-/* Angular card styling */
+/* Cozy card styling with gentle shadows */
 [data-theme="light"] .card,
 [data-theme="dark"] .card {
-    border-radius: 0rem !important;
-    border-width: 3px !important;
-    box-shadow: 4px 4px 0px oklch(0% 0 0 / 0.2) !important;
-    transition: all 0.2s ease !important;
+    border-radius: 1rem !important;
+    border-width: 2px !important;
+    box-shadow: 0 10px 25px -5px rgba(61, 53, 41, 0.1), 0 8px 10px -6px rgba(61, 53, 41, 0.08) !important;
+    transition: all 0.3s ease !important;
 }
 
 [data-theme="light"] .card:hover,
 [data-theme="dark"] .card:hover {
-    box-shadow: 6px 6px 0px oklch(0% 0 0 / 0.3) !important;
-    transform: translate(-2px, -2px) !important;
+    box-shadow: 0 15px 35px -5px rgba(61, 53, 41, 0.15), 0 10px 15px -6px rgba(61, 53, 41, 0.1) !important;
+    transform: translateY(-2px) !important;
 }
 
 
 
-/* Angular input and form styling */
+/* Soft, rounded input and form styling */
 .input, .textarea, .select {
-    border-radius: 0rem !important;
-    border-width: 3px !important;
-    border-color: var(--color-base-content) !important;
+    border-radius: 0.75rem !important;
+    border-width: 2px !important;
+    border-color: var(--color-base-300) !important;
+    transition: all 0.2s ease !important;
 }
 
 .input:focus, .textarea:focus, .select:focus {
     border-color: var(--color-primary) !important;
-    box-shadow: 3px 3px 0px var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.1) !important;
 }
 
-/* Angular navigation and header elements */
+/* Gentle navigation and header elements */
 .navbar {
-    border-radius: 0rem !important;
-    border-bottom: 3px solid var(--color-base-content) !important;
+    border-radius: 0 0 1rem 1rem !important;
+    border-bottom: 2px solid var(--color-base-300) !important;
+    box-shadow: 0 4px 6px -1px rgba(61, 53, 41, 0.05) !important;
 }
 
-/* Angular modal and overlay styling */
+/* Cozy modal and overlay styling */
 .modal-box {
-    border-radius: 0rem !important;
-    border: 3px solid var(--color-base-content) !important;
-    box-shadow: 8px 8px 0px oklch(0% 0 0 / 0.2) !important;
+    border-radius: 1.25rem !important;
+    border: 2px solid var(--color-base-300) !important;
+    box-shadow: 0 20px 40px -10px rgba(61, 53, 41, 0.2) !important;
 }
 
-/* Typography adjustments for ASCII-inspired design */
+/* Typography adjustments for cozy reading */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.1em !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.3 !important;
 }
 
-/* Angular progress and loading indicators */
+/* Soft progress and loading indicators */
 .progress {
-    border-radius: 0rem !important;
-    border: 2px solid var(--color-base-content) !important;
+    border-radius: 1rem !important;
+    border: 1px solid var(--color-base-300) !important;
+    overflow: hidden !important;
 }
 
 

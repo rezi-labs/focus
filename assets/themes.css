@@ -1,36 +1,36 @@
-/*! 🌼 daisyUI 5.0.42 - MIT License - Catppuccin Themes */
+/*! ☕ Cozy Coffee Table Themes */
 :root,
 :root:has(input.theme-controller[value="swiss"]:checked),
 [data-theme="swiss"] {
     color-scheme: light;
-    /* Catppuccin Latte - Light theme */
-    --color-base-100: #eff1f5; /* Base */
-    --color-base-200: #e6e9ef; /* Mantle */
-    --color-base-300: #dce0e8; /* Crust */
-    --color-base-content: #4c4f69; /* Text */
-    --color-primary: #8839ef; /* Mauve */
-    --color-primary-content: #eff1f5;
-    --color-secondary: #ea76cb; /* Pink */
-    --color-secondary-content: #eff1f5;
-    --color-accent: #04a5e5; /* Sky */
-    --color-accent-content: #eff1f5;
-    --color-neutral: #5c5f77; /* Subtext1 */
-    --color-neutral-content: #eff1f5;
-    --color-info: #209fb5; /* Sapphire */
-    --color-info-content: #eff1f5;
-    --color-success: #40a02b; /* Green */
-    --color-success-content: #eff1f5;
-    --color-warning: #df8e1d; /* Yellow */
-    --color-warning-content: #eff1f5;
-    --color-error: #d20f39; /* Red */
-    --color-error-content: #eff1f5;
-    /* Soft rounded corners for Catppuccin style */
-    --radius-selector: 0.5rem;
-    --radius-field: 0.5rem;
-    --radius-box: 0.75rem;
+    /* Warm Coffee Table - Light theme */
+    --color-base-100: #f5f0e8; /* Warm cream, like steamed milk */
+    --color-base-200: #ebe3d5; /* Warm beige, like light wood */
+    --color-base-300: #d9cdb8; /* Soft tan */
+    --color-base-content: #3d3529; /* Rich coffee brown */
+    --color-primary: #8b6f47; /* Warm caramel */
+    --color-primary-content: #f5f0e8;
+    --color-secondary: #b08968; /* Toasted almond */
+    --color-secondary-content: #f5f0e8;
+    --color-accent: #a67c52; /* Honey brown */
+    --color-accent-content: #f5f0e8;
+    --color-neutral: #6b5d52; /* Coffee with cream */
+    --color-neutral-content: #f5f0e8;
+    --color-info: #7d9d9c; /* Soft sage */
+    --color-info-content: #f5f0e8;
+    --color-success: #8a9a5b; /* Muted olive */
+    --color-success-content: #f5f0e8;
+    --color-warning: #d4a574; /* Warm amber */
+    --color-warning-content: #f5f0e8;
+    --color-error: #b85c50; /* Terracotta */
+    --color-error-content: #f5f0e8;
+    /* Cozy rounded corners */
+    --radius-selector: 0.75rem;
+    --radius-field: 0.75rem;
+    --radius-box: 1rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    /* Subtle borders */
+    /* Soft borders */
     --border: 1px;
     --depth: 0;
     --noise: 0;
@@ -39,34 +39,34 @@
 :root:has(input.theme-controller[value="swiss-dark"]:checked),
 [data-theme="swiss-dark"] {
     color-scheme: dark;
-    /* Catppuccin Mocha - Dark theme */
-    --color-base-100: #1e1e2e; /* Base */
-    --color-base-200: #181825; /* Mantle */
-    --color-base-300: #11111b; /* Crust */
-    --color-base-content: #cdd6f4; /* Text */
-    --color-primary: #cba6f7; /* Mauve */
-    --color-primary-content: #1e1e2e;
-    --color-secondary: #f5c2e7; /* Pink */
-    --color-secondary-content: #1e1e2e;
-    --color-accent: #89dceb; /* Sky */
-    --color-accent-content: #1e1e2e;
-    --color-neutral: #a6adc8; /* Subtext1 */
-    --color-neutral-content: #1e1e2e;
-    --color-info: #74c7ec; /* Sapphire */
-    --color-info-content: #1e1e2e;
-    --color-success: #a6e3a1; /* Green */
-    --color-success-content: #1e1e2e;
-    --color-warning: #f9e2af; /* Yellow */
-    --color-warning-content: #1e1e2e;
-    --color-error: #f38ba8; /* Red */
-    --color-error-content: #1e1e2e;
-    /* Soft rounded corners for Catppuccin style */
-    --radius-selector: 0.5rem;
-    --radius-field: 0.5rem;
-    --radius-box: 0.75rem;
+    /* Evening Coffee Table - Dark theme */
+    --color-base-100: #2a2520; /* Deep espresso */
+    --color-base-200: #1f1b17; /* Dark roast */
+    --color-base-300: #151210; /* Almost black coffee */
+    --color-base-content: #e8dcc8; /* Soft cream */
+    --color-primary: #c9a875; /* Golden latte */
+    --color-primary-content: #2a2520;
+    --color-secondary: #b89968; /* Warm caramel */
+    --color-secondary-content: #2a2520;
+    --color-accent: #d4a574; /* Butterscotch */
+    --color-accent-content: #2a2520;
+    --color-neutral: #9d8b73; /* Soft mocha */
+    --color-neutral-content: #2a2520;
+    --color-info: #8fa8a3; /* Muted teal */
+    --color-info-content: #2a2520;
+    --color-success: #a3b18a; /* Sage green */
+    --color-success-content: #2a2520;
+    --color-warning: #daa874; /* Amber glow */
+    --color-warning-content: #2a2520;
+    --color-error: #c17a6e; /* Warm clay */
+    --color-error-content: #2a2520;
+    /* Cozy rounded corners */
+    --radius-selector: 0.75rem;
+    --radius-field: 0.75rem;
+    --radius-box: 1rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    /* Subtle borders */
+    /* Soft borders */
     --border: 1px;
     --depth: 0;
     --noise: 0;
