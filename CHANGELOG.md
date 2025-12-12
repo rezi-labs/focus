@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/rezi-labs/focus/compare/v0.2.1...v0.2.2) (2025-12-12)
+
+
+### Bug Fixes
+
+* formatting ([5c1485d](https://github.com/rezi-labs/focus/commit/5c1485da5b739b20a4aa6da5c2fa3a13b0d28069))
+
 ## [0.2.1](https://github.com/rezi-labs/focus/compare/v0.2.0...v0.2.1) (2025-12-12)
 
 
