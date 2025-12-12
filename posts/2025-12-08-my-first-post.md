@@ -1,6 +1,8 @@
 # How to make a fast website
 
-## Using htmx - rust - postres - caddy
+Using htmx - rust - postres - caddy
+
+---
 
 I heard many times that 100 ms latency for a web app is fast. While this latency may be okay, it is for sure not fast.
 
