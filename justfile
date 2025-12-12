@@ -1,12 +1,7 @@
 import 'docker.just'
 import? 'private.just'
 
-image_name := "ghcr.io/rezi-labs/taste"
-export LOCAL := "true"
-
-export ADMIN_USERNAME :='admin'
-export ADMIN_PASSWORD :='admin'
-export RESET_ADMIN_USER := 'false'
+image_name := "ghcr.io/rezi-labs/focus"
 
 docker:
     docker compose up
@@ -29,6 +24,3 @@ lint:
 fmt:
     cargo fmt
     cargo fix --allow-dirty --allow-staged
-
-generate-session-secret:
-    openssl rand -base64 64
