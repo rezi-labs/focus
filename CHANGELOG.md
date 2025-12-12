@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/rezi-labs/focus/compare/v0.2.2...v0.2.3) (2025-12-12)
+
+
+### Bug Fixes
+
+* svg ([d390d94](https://github.com/rezi-labs/focus/commit/d390d94bd5609107405a761e48e9583b5f9d38e0))
+
 ## [0.2.2](https://github.com/rezi-labs/focus/compare/v0.2.1...v0.2.2) (2025-12-12)
 
 
