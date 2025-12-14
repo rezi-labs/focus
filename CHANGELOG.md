@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/rezi-labs/focus/compare/v0.5.0...v0.5.1) (2025-12-14)
+
+
+### Bug Fixes
+
+* move title down ([5f97f8a](https://github.com/rezi-labs/focus/commit/5f97f8ae21141749ebe431036f116f77e97e5e70))
+
 ## [0.5.0](https://github.com/rezi-labs/focus/compare/v0.4.0...v0.5.0) (2025-12-12)
 
 
