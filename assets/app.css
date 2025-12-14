@@ -78,11 +78,22 @@
 .prose {
     color: var(--tw-prose-body);
     max-width: 65ch;
+    font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    letter-spacing: -0.003em;
+    font-feature-settings: "liga" 1, "onum" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .prose :where(p):not(:where([class~="not-prose"] *)) {
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+    margin-top: 1.4em;
+    margin-bottom: 1.4em;
+    text-align: justify;
+    hyphens: auto;
+    word-spacing: 0.05em;
 }
 
 .prose :where([class~="lead"]):not(:where([class~="not-prose"] *)) {
@@ -192,11 +203,13 @@
 
 .prose :where(h1):not(:where([class~="not-prose"] *)) {
     color: var(--tw-prose-headings);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 2.25em;
     margin-top: 0;
     margin-bottom: 0.8888889em;
-    line-height: 1.1111111;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .prose :where(h1 strong):not(:where([class~="not-prose"] *)) {
@@ -206,11 +219,13 @@
 
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
     color: var(--tw-prose-headings);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.5em;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    line-height: 1.3333333;
+    margin-top: 2.2em;
+    margin-bottom: 1.1em;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
@@ -222,9 +237,11 @@
     color: var(--tw-prose-headings);
     font-weight: 600;
     font-size: 1.25em;
-    margin-top: 1.6em;
-    margin-bottom: 0.6em;
-    line-height: 1.6;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .prose :where(h3 strong):not(:where([class~="not-prose"] *)) {
@@ -264,8 +281,12 @@
 
 .prose :where(code):not(:where([class~="not-prose"] *)) {
     color: var(--tw-prose-code);
-    font-weight: 600;
-    font-size: 0.875em;
+    font-weight: 500;
+    font-size: 0.9em;
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+    background-color: var(--tw-prose-pre-bg);
+    padding: 0.125em 0.25em;
+    border-radius: 0.25rem;
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
@@ -376,8 +397,10 @@
     text-align: left;
     margin-top: 2em;
     margin-bottom: 2em;
-    font-size: 0.875em;
-    line-height: 1.7142857;
+    font-size: 0.9em;
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    border-collapse: collapse;
 }
 
 .prose :where(thead):not(:where([class~="not-prose"] *)) {
@@ -513,6 +536,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 1rem !important;
     border: 1px solid var(--color-base-300) !important;
     overflow: hidden !important;
+}
+
+/* Date styling - always center dates */
+.post-date {
+    text-align: center !important;
 }
 
 

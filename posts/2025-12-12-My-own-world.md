@@ -2,17 +2,19 @@
 
 Imagine being able to write everything
 
----
-
 In my first years of programming I have studied how to write java classes by writing down a whole class as code:
 
+```
 class Foo, Foo(), Int zed public String bar(){}, Int getZed(){ return this.zed }
+```
+
 
 I learned a lot, I actually learned how to program, not really object orentiation per se.
 Java pushed you to, but when we implemented the card game Tichu we for sure were not trying to.
 We invented our own little serialized array protocol over TCP back and forth between the server and the clients.
 At that point I never thought that I could be able to write very fast working code if I do not learn C.
-Here we are, I use Rust and currently I write all my applications with it:
+
+## Here we are, I use Rust and currently I write all my applications with it:
 
 - [Cup - an tag updater](https://github.com/rezi-labs/cup)
 - [Enk - a env var usage scanner](https://github.com/rezi-labs/enk)
@@ -22,7 +24,7 @@ Here we are, I use Rust and currently I write all my applications with it:
 
 They are all fast by default, no weird slow downs after a change.
 
-There are so many Libraries I can trust:
+## There are so many Libraries I can trust:
 
 - I want to parallelize: rayon
 - I want to have a fast webserver: actix
@@ -38,4 +40,4 @@ If I want to do embedded, I can. If I want to write an operating system, I could
 I always learned in wide ranges through ecosystems: Java, Kotlin, PHP, JS, TS and I tried many languages: Go, Zig, Odin, Elixir
 Now I feel like I found an ecosystem I can write everything in and if I feel I need something else I can just go for it on top.
 
-So lets build everything
+## So lets build everything

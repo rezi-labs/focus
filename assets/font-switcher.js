@@ -8,7 +8,8 @@ const AVAILABLE_FONTS = [
     { value: 'system', name: 'System', stack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' },
     { value: 'serif', name: 'Serif', stack: 'Georgia, "Times New Roman", Times, serif' },
     { value: 'mono', name: 'Mono', stack: '"SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace' },
-    { value: 'classic', name: 'Classic', stack: 'Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif' }
+    { value: 'classic', name: 'Classic', stack: 'Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif' },
+    { value: 'reader', name: 'Reader', stack: '"Charter", "Bitstream Charter", "Sitka Text", Cambria, serif' }
 ];
 
 /**

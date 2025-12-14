@@ -9,9 +9,8 @@ static POSTS_DIR: Dir = include_dir!("$CARGO_MANIFEST_DIR/posts");
 
 #[derive(Debug, Clone)]
 struct Post {
-    title: String,
     slug: String,
-    md_content: String,
+    content: String,
     date: DateTime<Utc>,
 }
 
@@ -23,7 +22,7 @@ impl Post {
 
 fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     let as_html = markdown::to_html_with_options(
-        &post.md_content,
+        &post.content,
         &Options {
             compile: CompileOptions {
                 allow_dangerous_html: true,
@@ -44,7 +43,7 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
         div id="post" class="flex flex-col h-full" {
             div class="flex-1 overflow-y-auto space-y-6 pb-6" {
                 div class="prose" {
-                    p {(post.human_date())}
+                    p class="post-date" {(post.human_date())}
                 }
 
                 div class="divider" {}
@@ -79,7 +78,7 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
 
 fn post_to_html_with_slug(post: Post, current_index: usize) -> maud::Markup {
     let as_html = markdown::to_html_with_options(
-        &post.md_content,
+        &post.content,
         &Options {
             compile: CompileOptions {
                 allow_dangerous_html: true,
@@ -96,9 +95,6 @@ fn post_to_html_with_slug(post: Post, current_index: usize) -> maud::Markup {
     maud::html! {
         div id="post" class="flex flex-col h-full" {
             div class="flex-1 overflow-y-auto space-y-6 pb-6" {
-                div class="prose" {
-                    p {(post.human_date())}
-                }
 
                 (PreEscaped(as_html))
             }
@@ -116,6 +112,9 @@ fn post_to_html_with_slug(post: Post, current_index: usize) -> maud::Markup {
                 } @else {
                     div {}
                 }
+                div {
+                    p class="post-date" {(post.human_date())}
+                }
                 @if let Some(next) = next_slug {
                     button
                         class="btn btn-primary"
@@ -125,26 +124,12 @@ fn post_to_html_with_slug(post: Post, current_index: usize) -> maud::Markup {
                         hx-push-url="true" {
                         "Next Post"
                     }
+                } @else {
+                    div {}
                 }
             }
         }
     }
-}
-
-fn parse_post_content(content: &str) -> (String, String) {
-    let lines: Vec<&str> = content.lines().collect();
-    let mut title = String::from("Untitled");
-    // Find title (first line starting with #)
-    for line in lines.iter() {
-        let trimmed = line.trim();
-        if trimmed.starts_with('#') {
-            title = trimmed.trim_start_matches('#').trim().to_string();
-
-            break;
-        }
-    }
-
-    (title, content.to_string())
 }
 
 fn extract_slug_from_filename(filename: &str) -> String {
@@ -202,13 +187,11 @@ lazy_static! {
                 };
 
                 let content = file.contents_utf8().unwrap_or("");
-                let (title, md_content) = parse_post_content(content);
                 let slug = extract_slug_from_filename(filename);
 
                 Some(Post {
-                    title,
                     slug,
-                    md_content,
+                    content: content.to_string(),
                     date,
                 })
             })
