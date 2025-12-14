@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/rezi-labs/focus/compare/v0.5.1...v0.5.2) (2025-12-14)
+
+
+### Bug Fixes
+
+* sup ([4602fcb](https://github.com/rezi-labs/focus/commit/4602fcbbfe40d4538f6a86615d76cf1b937634ca))
+
 ## [0.5.1](https://github.com/rezi-labs/focus/compare/v0.5.0...v0.5.1) (2025-12-14)
 
 
