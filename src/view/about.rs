@@ -10,7 +10,7 @@ static POSTS_DIR: Dir = include_dir!("$CARGO_MANIFEST_DIR/posts");
 #[derive(Debug, Clone)]
 struct Post {
     title: String,
-    subtitle: String,
+    slug: String,
     md_content: String,
     date: DateTime<Utc>,
 }
@@ -44,8 +44,6 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
         div id="post" class="flex flex-col h-full" {
             div class="flex-1 overflow-y-auto space-y-6 pb-6" {
                 div class="prose" {
-                    h1 {(post.title)}
-                    p {(post.subtitle)}
                     p {(post.human_date())}
                 }
 
@@ -79,53 +77,102 @@ fn post_to_html(post: Post, current_index: usize) -> maud::Markup {
     }
 }
 
-fn parse_post_content(content: &str) -> (String, String, String) {
+fn post_to_html_with_slug(post: Post, current_index: usize) -> maud::Markup {
+    let as_html = markdown::to_html_with_options(
+        &post.md_content,
+        &Options {
+            compile: CompileOptions {
+                allow_dangerous_html: true,
+                allow_dangerous_protocol: false,
+                ..CompileOptions::default()
+            },
+            ..Options::gfm()
+        },
+    )
+    .unwrap();
+
+    let (prev_slug, next_slug) = get_adjacent_post_slugs(current_index);
+
+    maud::html! {
+        div id="post" class="flex flex-col h-full" {
+            div class="flex-1 overflow-y-auto space-y-6 pb-6" {
+                div class="prose" {
+                    p {(post.human_date())}
+                }
+
+                (PreEscaped(as_html))
+            }
+
+            div class="mt-6 flex justify-between sticky bottom-0 bg-base-100 py-4 border-t border-base-200" {
+                @if let Some(prev) = prev_slug {
+                    button
+                        class="btn btn-primary"
+                        hx-get={"/post/" (prev)}
+                        hx-target="#post"
+                        hx-swap="outerHTML"
+                        hx-push-url="true" {
+                        "Previous Post"
+                    }
+                } @else {
+                    div {}
+                }
+                @if let Some(next) = next_slug {
+                    button
+                        class="btn btn-primary"
+                        hx-get={"/post/" (next)}
+                        hx-target="#post"
+                        hx-swap="outerHTML"
+                        hx-push-url="true" {
+                        "Next Post"
+                    }
+                }
+            }
+        }
+    }
+}
+
+fn parse_post_content(content: &str) -> (String, String) {
     let lines: Vec<&str> = content.lines().collect();
     let mut title = String::from("Untitled");
-    let mut subtitle = String::new();
-    let mut content_start_idx = 0;
-
     // Find title (first line starting with #)
-    for (idx, line) in lines.iter().enumerate() {
+    for line in lines.iter() {
         let trimmed = line.trim();
         if trimmed.starts_with('#') {
             title = trimmed.trim_start_matches('#').trim().to_string();
-            content_start_idx = idx + 1;
+
             break;
         }
     }
 
-    // Find subtitle (text between title and "---")
-    let mut subtitle_lines = Vec::new();
-    let mut found_separator = false;
-
-    for (offset, line) in lines[content_start_idx..].iter().enumerate() {
-        let trimmed = line.trim();
-
-        if trimmed == "---" {
-            found_separator = true;
-            content_start_idx = content_start_idx + offset + 1;
-            break;
-        }
-
-        if !trimmed.is_empty() {
-            subtitle_lines.push(trimmed);
-        }
-    }
-
-    if !subtitle_lines.is_empty() {
-        subtitle = subtitle_lines.join(" ");
-    }
-
-    // Get content after separator
-    let content = if found_separator && content_start_idx < lines.len() {
-        lines[content_start_idx..].join("\n")
-    } else {
-        content.to_string()
-    };
-
-    (title, subtitle, content)
+    (title, content.to_string())
 }
+
+fn extract_slug_from_filename(filename: &str) -> String {
+    // Parse slug from filename (format: YYYY-MM-DD-slug.md)
+    if filename.len() > 11 {
+        // Skip the date part (YYYY-MM-DD-) and get the slug
+        let slug_part = &filename[11..];
+        slug_part.to_string()
+    } else {
+        // Fallback: generate slug from filename
+        filename
+            .to_lowercase()
+            .chars()
+            .map(|c| {
+                if c.is_alphanumeric() {
+                    c
+                } else if c.is_whitespace() {
+                    '-'
+                } else {
+                    '\0'
+                }
+            })
+            .filter(|&c| c != '\0')
+            .collect::<String>()
+    }
+}
+
+use std::collections::HashMap;
 
 lazy_static! {
     static ref POSTS: Vec<Post> = {
@@ -155,11 +202,12 @@ lazy_static! {
                 };
 
                 let content = file.contents_utf8().unwrap_or("");
-                let (title, subtitle, md_content) = parse_post_content(content);
+                let (title, md_content) = parse_post_content(content);
+                let slug = extract_slug_from_filename(filename);
 
                 Some(Post {
                     title,
-                    subtitle,
+                    slug,
                     md_content,
                     date,
                 })
@@ -169,6 +217,16 @@ lazy_static! {
         // Sort by date (newest first)
         posts.sort_by(|a, b| b.date.cmp(&a.date));
         posts
+    };
+}
+
+lazy_static! {
+    static ref SLUG_TO_INDEX: HashMap<String, usize> = {
+        let mut map = HashMap::new();
+        for (index, post) in POSTS.iter().enumerate() {
+            map.insert(post.slug.clone(), index);
+        }
+        map
     };
 }
 
@@ -202,6 +260,24 @@ fn get_post(page: usize) -> Option<Post> {
     POSTS.get(page).cloned()
 }
 
+fn get_post_by_slug(slug: &str) -> Option<(Post, usize)> {
+    SLUG_TO_INDEX
+        .get(slug)
+        .and_then(|&index| POSTS.get(index).map(|post| (post.clone(), index)))
+}
+
+fn get_adjacent_post_slugs(current_index: usize) -> (Option<String>, Option<String>) {
+    let prev_slug = if current_index > 0 {
+        POSTS.get(current_index - 1).map(|post| post.slug.clone())
+    } else {
+        None
+    };
+
+    let next_slug = POSTS.get(current_index + 1).map(|post| post.slug.clone());
+
+    (prev_slug, next_slug)
+}
+
 #[get("/posts/{index}")]
 pub async fn post_route(path: web::Path<usize>) -> AwResult<HttpResponse> {
     let index = path.into_inner();
@@ -217,9 +293,24 @@ pub async fn post_route(path: web::Path<usize>) -> AwResult<HttpResponse> {
     }
 }
 
+#[get("/post/{slug}")]
+pub async fn post_slug_route(path: web::Path<String>) -> AwResult<HttpResponse> {
+    let slug = path.into_inner();
+
+    match get_post_by_slug(&slug) {
+        Some((post, index)) => {
+            let html = post_to_html_with_slug(post, index);
+            Ok(HttpResponse::Ok()
+                .content_type("text/html")
+                .body(html.into_string()))
+        }
+        None => Ok(HttpResponse::NotFound().body("Post not found")),
+    }
+}
+
 pub fn posts() -> Markup {
     match get_post(0) {
-        Some(post) => post_to_html(post, 0),
+        Some(post) => post_to_html_with_slug(post, 0),
         None => html! {
             div class="space-y-6" {
                 p { "No posts available yet." }

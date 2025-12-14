@@ -42,6 +42,7 @@ async fn start_server() -> std::io::Result<()> {
             .service(view::index_route)
             .service(view::about_readme_endpoint)
             .service(view::about::post_route)
+            .service(view::about::post_slug_route)
             .service(routes::assets::scope())
     });
     server
